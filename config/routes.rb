@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
       devise_for :users, :controllers => {
     :omniauth_callback => "users/omniauth_callbacks"}
   devise_scope :user do
@@ -6,8 +7,19 @@ Rails.application.routes.draw do
   end
   
   get 'welcome', to: 'welcome#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :deleted
+ 
+   resources :filerequests
+
+   resources :shared
+
+   resources :photos
+   
+   resources :starred
+   
+   resources :recents
+   
+   resources :allfiles
+  
 end

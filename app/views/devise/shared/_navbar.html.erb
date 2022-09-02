@@ -1,0 +1,21 @@
+<nav class="navbar navbar-light" style="background-color: #fff;">  
+  <div class="container-fluid">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+                  <style type="text/css">
+                    .fa_custom {
+                               color: #0099CC
+                                }
+                  </style>
+
+              <i class="fa fa-dropbox fa_custom fa-2x"></i>
+              <a class="navbar-brand" href="#">DropBox</a>
+              <i class="fa fa-bell"></i>
+              
+      <!-- <ul class="navbar-nav me-auto">    -->
+      <!-- </ul> -->
+       <% if current_user %> 
+      <%= button_to "log out", destroy_user_session_path, method: :delete, class: "btn btn-danger"%>
+    <% end %>
+        </div>
+  </div>
+</nav>

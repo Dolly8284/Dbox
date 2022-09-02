@@ -1,0 +1,54 @@
+<% if current_user %>
+  <div class="wrapper">
+    <div class="sidebar">
+      <ul>
+        <a href="<%= posts_path %>">
+          <span class="icon" ></i></span>
+          <span class="item">Home</span>
+        </a>
+      </ul>
+      <ul>
+        <a href="<%= allfiles_path%>">
+          <span class="icon" ></i></span>
+          <span class="item">All Files</span>
+        </a>
+      </ul>
+      <ul>
+        <a href="<%= recents_path %>">
+          <span class="icon"></i></span>
+          <span class="item">Recents</span>
+        </a>
+      </ul>
+      <ul>
+        <a href="<%= starred_index_path %>">
+          <span class="icon"></i></span>
+          <span class="item">Starred</span>
+        </a>
+      </ul>
+      <ul>
+        <a href="<%= photos_path %>">
+          <span class="icon"></i></span>
+          <span class="item">Photos</span>
+        </a>
+      </ul>
+      <ul>
+        <a href="<%= shared_index_path %>">
+          <span class="icon"></i></span>
+          <span class="item">Shared</span>
+        </a>
+      </ul>
+      <ul>
+        <a href="<%= filerequests_path %>">
+          <span class="icon"></i></span>
+          <span class="item">File Requests</span>
+        </a>
+      </ul>
+      <ul>
+        <a  href="<%= deleted_index_path %>">
+          <span class="icon"></span>
+          <span class="item">Delete Files</span>
+        </a>
+      </ul>
+    </div>
+  </div>
+<% end %>

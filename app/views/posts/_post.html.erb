@@ -1,0 +1,15 @@
+<%# if @post.persisted? %>
+ <div class="card shadow-sm">
+  <%= image_tag url_for(post.avatar) if post.avatar.attached? %>
+  <div class="card-body">
+   <div class="d-flex justify-content-between align-items-center">
+    <div class="btn-group">
+     <%= link_to "Edit", edit_post_path(post), :remote => true , class: "btn btn-sm btn-outline-primary" %>
+     <%= button_to 'Delete', post_path(post), method: :delete , class:"btn btn-sm btn-outline-primary" %>
+    </div>
+   </div>
+   <br/>
+  </div>
+ </div>
+<%# end %>
+

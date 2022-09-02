@@ -1,0 +1,7 @@
+
+development:
+  cloud_name:  "dgzhqmhu9"
+  api_key: "496979127371212"
+  api_secret: "05-ISK41xgGQ-s3Yv-yMmzfI6gY"
+  secure: true
+  cdn_subdomain: true

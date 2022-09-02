@@ -6,12 +6,25 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+     <title>ShareBox |<%= content_for?(:title) ? yield(:title) : "Untitled" %></title> 
+       <%= stylesheet_link_tag "application", "redmond/jquery-ui-1.8.9.custom" %> 
+        <%= javascript_include_tag "jquery-1.4.4.min", "jquery-ui-1.8.9.custom.min" %> 
+         <%= javascript_include_tag "application" %> 
+        
   </head>
 
   <body>
-    <%= render partial: "users/shared/navbar" %>
+     <%= render partial: "devise/shared/navbar" %>
+    <div class="container">
+      <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
+  
+     <%= render partial: "devise/shared/sidebar" %>
     <%= yield %>
+      <br />
+    <%= render partial: "devise/shared/footer" %>
   </body>
 </html>

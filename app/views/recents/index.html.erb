@@ -1,0 +1,17 @@
+<h2> Recents </h2>
+<h1>Home</h1>
+    <%#= link_to "New post", new_post_path %>
+
+    </br>
+    <h5>Suggested from your activity</h5>
+    <hr>
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render 'form' %>
+    <%= render post %>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+  <% end %>
+</div>

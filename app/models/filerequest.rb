@@ -1,0 +1,2 @@
+class Filerequest < ApplicationRecord
+end
