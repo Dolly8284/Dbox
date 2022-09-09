@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_08_114506) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_14_170455) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,58 +42,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_08_114506) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "allfiles", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "deletedfiles", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "filerequests", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "photos", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
-    t.string "title"
     t.boolean "is_public"
     t.boolean "is_private"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "recents", force: :cascade do |t|
+  create_table "sharings", force: :cascade do |t|
+    t.bigint "user_id_id"
+    t.bigint "post_id_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "shared_folders", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "shared_email"
-    t.integer "shared_user_id"
-    t.integer "folder_id"
-    t.string "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "shareds", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "starreds", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["post_id_id"], name: "index_sharings_on_post_id_id"
+    t.index ["user_id_id"], name: "index_sharings_on_user_id_id"
   end
 
   create_table "users", force: :cascade do |t|

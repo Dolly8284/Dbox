@@ -1,6 +1,7 @@
-<%= form_for Post.new do |f| %>  <br>
+<%= form_for @post  do |f| %>
+  <br>
   <div class="form-group clearfix">
-    <%= f.file_field :avatar, id:'uploadimage', class: 'form-control', style: 'width: 20%; float: right;', onchange: 'loadFile(event)' %>
+    <%= f.file_field :avatar, id:'uploadimage', class: 'form-control', style: 'width: 30%; float: right;', onchange: 'loadFile(event)' %>
   </div>
    <br>
   <img id="output"/>
@@ -14,9 +15,10 @@
       reader.readAsDataURL(event.target.files[0]);
     };
   </script>
-    <%= f.radio_button :is_private, 'private' %> Private
-    <%= f.radio_button :is_public, 'public' %> Public
   <div class="form-group clearfix">
+    <br>
+    <%= f.radio_button :is_public, 'Public' %> Public
+    <%= f.radio_button :is_private, 'Private' %> Private
     <%= f.submit id:'postbutton', class: 'btn btn-primary btn-lg float-end' %>
   </div>
-<% end %>
+<% end %> 

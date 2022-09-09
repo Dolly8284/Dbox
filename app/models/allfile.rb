@@ -1,2 +1,0 @@
-class Allfile < ApplicationRecord
-end
