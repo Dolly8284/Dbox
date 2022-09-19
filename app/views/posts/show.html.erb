@@ -1,3 +1,8 @@
-<br />
-<%= collection_select(:f, :user_id, User.all, :id, :first_name ,prompt: true , placeholder:"Users") %> 
-<%= button_to 'Share', new_sharing_path, class:"btn btn-sm btn-outline-primary"%>
+<h3>Share this file</h3>
+<p>Anyone with this link can view</p>
+<%= form_for :post, url: sharings_path, method: :post, local: true do |f| %>
+  <%#= f.label :first_name, "First Name" %>
+  <%= f.collection_select :user_id, @posts, :id ,:email, {prompt: true, :selected => params[:user], label: "Users"} %><br>
+  <%= f.submit "Share", class:"btn btn-sm btn-outline-primary" %>
+<% end %> 
+

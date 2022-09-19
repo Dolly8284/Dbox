@@ -5,9 +5,12 @@ Rails.application.routes.draw do
     root to: "devise/sessions#new"
   end
 
-  resources :posts
-  resources :sharings
-
+  resources :posts do
+    member do
+      resources :sharings
+    end
+  end
+  
   get 'welcome', to: 'welcome#index'
-  post 'new_sharing', to: 'sharing#new_shared'   
+  get 'new_sharing', to: 'sharings#new_shared'
 end

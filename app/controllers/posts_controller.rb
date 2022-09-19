@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
-    @posts = current_user.posts.all.order(created_at: :desc)
+    @post = Post.new
+    @posts = Post.all.order(created_at: :desc)
     @r_posts = Post.where("is_public").order! 'created_at DESC'
     @pr_posts = current_user.posts.where("is_private").order! 'created_at DESC'
-    @post = Post.new
+        # @posts = current_user.posts.order("RANDOM()").first(1)
   end
 
   def create
@@ -19,6 +20,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @posts = User.all
     @post = current_user.posts.find(params[:id])
   end
 

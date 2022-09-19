@@ -1,7 +1,7 @@
 <%= form_for @post  do |f| %>
   <br>
   <div class="form-group clearfix">
-    <%= f.file_field :avatar, id:'uploadimage', class: 'form-control', style: 'width: 30%; float: right;', onchange: 'loadFile(event)' %>
+    <%= f.file_field :avatar, id:'uploadimage', class:'form-control', style:'width: 30%; float: right;', onchange: 'loadFile(event)' %>
   </div>
    <br>
   <img id="output"/>

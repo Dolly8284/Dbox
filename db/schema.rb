@@ -52,12 +52,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_14_170455) do
   end
 
   create_table "sharings", force: :cascade do |t|
-    t.bigint "user_id_id"
-    t.bigint "post_id_id"
+    t.bigint "user_id"
+    t.bigint "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id_id"], name: "index_sharings_on_post_id_id"
-    t.index ["user_id_id"], name: "index_sharings_on_user_id_id"
+    t.index ["post_id"], name: "index_sharings_on_post_id"
+    t.index ["user_id"], name: "index_sharings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
