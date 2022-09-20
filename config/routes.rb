@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   end
   
   get 'welcome', to: 'welcome#index'
-  get 'new_sharing', to: 'sharings#new_shared'
+  # get 'new_sharing', to: 'sharings#new_shared'
 end

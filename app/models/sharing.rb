@@ -1,5 +1,4 @@
 class Sharing < ApplicationRecord
-
-  # validates_uniqueness_of :sharing, scope: :post_id
+  # validates :sharing presence: true
   belongs_to :post   
 end

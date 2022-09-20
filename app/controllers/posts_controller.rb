@@ -5,9 +5,8 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     @posts = Post.all.order(created_at: :desc)
-    @r_posts = Post.where("is_public").order! 'created_at DESC'
+    # @r_posts = Post.where("is_public").order! 'created_at DESC'
     @pr_posts = current_user.posts.where("is_private").order! 'created_at DESC'
-        # @posts = current_user.posts.order("RANDOM()").first(1)
   end
 
   def create
@@ -49,6 +48,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-   params.require(:post).permit(:user_id, :description, :avatar , :is_public, :is_private)
+   params.require(:post).permit(:user_id, :title, :avatar, :is_private)
   end
 end

@@ -37,17 +37,14 @@ gem 'jquery-rails'
 
 gem "image_processing", ">= 1.2"
 
-# gem 'cloudinary'
-
-# gem "aws-sdk-s3", require: false
+gem "letter_opener" , "1.4.1"
 
 gem "pry"
 
 gem 'cloudinary'
 
-# gem 'nprogress-rails'
-
 gem 'coffee-rails'
+
 gem 'jquery-fileupload-rails'
 
 # Use Redis adapter to run Action Cable in production

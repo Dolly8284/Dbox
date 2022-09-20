@@ -1,7 +1,7 @@
-<div class="card shadow-sm">
-  <%= image_tag url_for(post.avatar) if post.avatar.attached?  %>
+<div class="col-md-8">
+  <%= image_tag url_for(post.avatar),width:'200px;' if post.avatar.attached?  %>
   <div class="card-body">
-    <p class="card-text"><%= post.description %></p>
+    <p class="card-text"><%= post.title %></p>
     <div class="d-flex justify-content-between align-items-center">
       <div class="btn-group">
         <%= link_to "Share", post_path(post), class: "btn btn-sm btn-outline-primary" %>

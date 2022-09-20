@@ -8,8 +8,7 @@ class SharingsController < ApplicationController
 
   def create
     @post = Post.find(params[:id])
-    # binding.pry
-    @new_sharing = @post.sharings.create(user_id:@post.user_id)
+    @new_sharing = @post.sharings.create(params[:post].permit(:user_id))
     redirect_to sharings_path
   end
 

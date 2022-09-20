@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  # validates :title, presence: true, uniqueness: true
+# validates_uniqueness_of :post_id, scope: :user_id
   has_one_attached :avatar, dependent: :destory  
   has_many :sharings
   belongs_to :user, optional: true
