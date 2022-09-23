@@ -4,7 +4,6 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    # binding.pry
     @posts = current_user.posts.all.order(created_at: :desc)
      # @p_post = current_user.posts.where(id: params[:id])
 

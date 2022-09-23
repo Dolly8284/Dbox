@@ -1,9 +1,7 @@
 class SharingsController < ApplicationController
   
   def index
-    # binding.pry
     @sharings = Sharing.all
-    # @sharing = Sharing.where(:current_user)
   end 
 
   def create
