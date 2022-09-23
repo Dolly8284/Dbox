@@ -1,9 +1,9 @@
 class SharingsController < ApplicationController
-
+  
   def index
-    @sharing = Sharing.all
-    # @sharing = Sharing.where("created_at > ?" , Time.now.beginning_of_day)
-    # @all_sharing = Sharing.where("user_id = ?", params[:user_id])
+    # binding.pry
+    @sharings = Sharing.all
+    # @sharing = Sharing.where(:current_user)
   end 
 
   def create

@@ -46,7 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_19_130333) do
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
-    t.boolean "is_private"
+    t.string "is_public"
+    t.string "is_private"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

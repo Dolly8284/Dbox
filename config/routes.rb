@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       resources :sharings
     end
   end
-  
+
+  # get 'sharing', to: 'sharing#index'
   get 'welcome', to: 'welcome#index'
-  # get 'new_sharing', to: 'sharings#new_shared'
 end

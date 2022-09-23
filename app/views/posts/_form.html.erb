@@ -1,7 +1,11 @@
-<%= form_for @post  do |f| %>
+<%= form_for @post do |f| %>
+  <br>
+  <div class="form-group">
+    <%= f.text_area :title, class:'form-control', placeholder:'Title...', style:"width:50%;", id: "exampleTextarea"%>
+  </div>
   <br>
   <div class="form-group clearfix">
-    <%= f.file_field :avatar, id:'uploadimage', class:'form-control', style:'width: 30%; float: right;', onchange: 'loadFile(event)' %>
+    <%= f.file_field :avatar, id:'uploadimage', class:'form-control', style:'width: 30%;', onchange: 'loadFile(event)' %>
   </div>
    <br>
   <img id="output"/>
@@ -17,7 +21,10 @@
   </script>
   <div class="form-group clearfix">
     <br>
+    <%= f.radio_button :is_public, 'public'%> Public
     <%= f.radio_button :is_private, 'Private' %> Private
-    <%= f.submit id:'uploadimage', class: 'btn btn-primary btn-lg float-end' %>
+    <%#= f.submit id:'uploadimage', class: 'btn btn-primary btn-lg float-end'%>
+    <input type="submit" name="commit" value="Upload" id="uploadimage" class="btn btn-primary btn-lg float-end" data-disable-with="Create Post">
   </div>
 <% end %> 
+<hr>

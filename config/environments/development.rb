@@ -58,7 +58,7 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-  # config.hosts << "f461-2401-4900-1c19-6402-c640-eb8e-71a9-1e7e.in.ngrok.io"
+  config.hosts << "3708-2401-4900-1c19-eca1-6304-96f4-dcc4-47c1.in.ngrok.io"
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
 
