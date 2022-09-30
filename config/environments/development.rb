@@ -58,7 +58,9 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-
+  config.hosts << "a6e3-2401-4900-1c19-a819-67ff-123e-de41-e434.in.ngrok.io"
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
