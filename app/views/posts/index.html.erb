@@ -1,18 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Home</h1>
-    <%= link_to "New post", new_post_path %>
-
-    </br>
-    <h5>Suggested from your activity</h5>
-    <hr>
-
-<div id="posts">
-   <% @posts.each do |post| %>
-    <%= render 'form' %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
+<h4>Home</h4>
+<div class="col-md-8 col-md-2 offset-md-2">
+  <%= render 'form' %>
+  <%= render 'lists' %>
 </div>
+<br />
+<h6>Suggested from your activity</h6>
+<hr>

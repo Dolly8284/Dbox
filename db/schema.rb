@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_08_114506) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_19_130333) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -65,8 +66,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_08_114506) do
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
-    t.boolean "is_public"
-    t.boolean "is_private"
+    t.string "is_public"
+    t.string "is_private"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -89,6 +90,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_08_114506) do
   create_table "shareds", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sharings", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_sharings_on_post_id"
+    t.index ["user_id"], name: "index_sharings_on_user_id"
   end
 
   create_table "starreds", force: :cascade do |t|

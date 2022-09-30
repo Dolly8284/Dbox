@@ -7,19 +7,9 @@ Rails.application.routes.draw do
   end
   
   get 'welcome', to: 'welcome#index'
-
-  resources :deleted
- 
-   resources :filerequests
-
-   resources :shared
-
-   resources :photos
-   
-   resources :starred
-   
-   resources :recents
-   
-   resources :allfiles
-  
+  resources :posts do
+    member do
+      resources :sharings
+    end
+  end  
 end

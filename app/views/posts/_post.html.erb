@@ -1,16 +1,12 @@
- <div class="card shadow-sm">
-  <%= image_tag url_for(post.avatar) if post.avatar.attached? %>
 <div class="col-md-8">
   <a href="<%= url_for post.avatar %>"><%= image_tag url_for(post.avatar),width:'200px;' if post.avatar.attached?%></a>
   <div class="card-body">
    <div class="d-flex justify-content-between align-items-center">
     <div class="btn-group">
-     <%= link_to "Edit", edit_post_path(post), :remote => true , class: "btn btn-sm btn-outline-primary" %>
-     <%= button_to 'Delete', post_path(post), method: :delete , class:"btn btn-sm btn-outline-primary" %>
+      <%= link_to "Share", post_path(post), class: "btn btn-sm btn-outline-primary" %>
+      <%= link_to "Edit", edit_post_path(post), :remote => true , class: "btn btn-sm btn-outline-primary" %>
+      <%= button_to 'Delete', post_path(post), method: :delete , class:"btn btn-sm btn-outline-primary" %>
     </div>
-   </div>
-   <br/>
   </div>
- </div>
-
-
+   <br/>
+</div>
