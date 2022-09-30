@@ -1,17 +1,11 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!, :except => [:index, :show]
   before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @post = Post.new
     @posts = current_user.posts.all.order(created_at: :desc)
-     # @p_post = current_user.posts.where(id: params[:id])
-
-    # @p_posts = Post.all
-    # @p_posts = Post.where(:user_id => current_user.id)
-    # @posts = Post.all.where('id != ?', current_user)
-
-    # @pr_posts = current_user.posts.where("is_private").order! 'created_at DESC'
+    @p_posts = Post.includes(:user).where("posts.is_public = 'Public'")
   end
 
   def create
@@ -56,3 +50,10 @@ class PostsController < ApplicationController
    params.require(:post).permit(:user_id, :title, :avatar, :is_public,:is_private)
   end
 end
+
+
+
+
+
+
+

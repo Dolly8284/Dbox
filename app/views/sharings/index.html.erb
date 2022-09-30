@@ -1,28 +1,39 @@
-<table class="table table-striped">
-  <thead>
-   <tr>
-     <th>S.No.</th>
-     <th>User Id</th>
-     <th>Name</th>
-     <th>Private</th>
-     <th>Images</th>
-     <th>Time</th>
-     <br />
-    </tr>
-  </thead>
-  <tbody>
-    <% @sharings.each do |sharing| %>
-      <tr>
-        <td><%= sharing.id %></td>
-        <td><%= sharing.user_id %></td>
-        <td><%= sharing.post.user.first_name %></td>
-        <td><%= sharing.post.is_private %></td>
-        <td><%= image_tag url_for(sharing.post.avatar),width:'50px;'  if sharing.post.avatar.attached?  %></td>
-        <td><%= sharing.created_at %></td>
+<% if current_user %>
+  <table class="table table-striped">
+    <thead>
+     <tr>
+       <th>S.No.</th>
+       <th>User Id</th>
+       <th>Name</th>
+       <th>Private</th>
+       <th>Images</th>
+       <th>Time</th>
+       <br />
       </tr>
-    <% end %>    
-  </tbody>
-</table>
-  
+    </thead>
+    <tbody>
+      <% @sharings.each do |sharing| %>
+        <tr>
+          <td><%= sharing.id %></td>
+          <td><%= sharing.user_id %></td>
+          <td><%= sharing.post.user.first_name %></td>
+          <td><%= sharing.post.is_private %></td>
+          <td><a href="<%= url_for sharing.post.avatar %>"><%= image_tag url_for(sharing.post.avatar),width:'50px;' if sharing.post.avatar.attached? %></a></td>
+          <td><%= sharing.created_at %></td>
+        </tr>
+      <% end %>
+      <% @recipes.each do |sharing| %>
+        <tr>
+          <td><%= sharing.id %></td>
+          <td><%= sharing.user_id %></td>
+          <td><%= sharing.post.user.first_name %></td>
+          <td><%= sharing.post.is_private %></td>
+          <td><a href="<%= url_for sharing.post.avatar %>"><%= image_tag url_for(sharing.post.avatar),width:'50px;' if sharing.post.avatar.attached? %></a></td>
+          <td><%= sharing.created_at %></td>
+        </tr>
+      <% end %> 
+    </tbody>
+  </table>
+<% end %>  
         
     

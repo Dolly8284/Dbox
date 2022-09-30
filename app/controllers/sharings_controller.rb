@@ -1,7 +1,9 @@
 class SharingsController < ApplicationController
   
   def index
-    @sharings = Sharing.all
+    @sharings = current_user.sharings.order(created_at: :desc)
+    @recipes = current_user.recipes.order(created_at: :asc)
+    @sharing =  Sharing.joins(:post).where(posts: {is_private: 'Private'})
   end 
 
   def create
@@ -19,3 +21,6 @@ class SharingsController < ApplicationController
     params.require(:sharing_params).permit(:user_id, :post_id)
   end
 end
+
+
+ 
