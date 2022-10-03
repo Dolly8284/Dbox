@@ -37,9 +37,7 @@ gem 'jquery-rails'
 
 gem "image_processing", ">= 1.2"
 
-# gem 'cloudinary'
-
-# gem "aws-sdk-s3", require: false
+gem "letter_opener"
 
 gem "pry"
 

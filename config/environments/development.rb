@@ -37,7 +37,7 @@ Rails.application.configure do
   # config.active_storage.service = :local
    config.active_storage.service = :cloudinary
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -58,10 +58,22 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
-  config.hosts << "a6e3-2401-4900-1c19-a819-67ff-123e-de41-e434.in.ngrok.io"
+  # config.hosts << "a6e3-2401-4900-1c19-a819-67ff-123e-de41-e434.in.ngrok.io"
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
-  # Raises error for missing translations.
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'http://localhost:3000/',
+  user_name:            ENV['SMTP_USERNAME'],
+  password:             ENV['SMTP_PASSWORD'],
+  authentication:       'plain',
+  enable_starttls_auto: true,
+  open_timeout:         5,
+  read_timeout:         5 }
+
   # config.i18n.raise_on_missing_translations = true
 
   # Annotate rendered view with file names.

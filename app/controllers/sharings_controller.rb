@@ -9,6 +9,7 @@ class SharingsController < ApplicationController
   def create
     @post = Post.find(params[:id])
     @new_sharing = @post.sharings.create(params[:post].permit(:user_id))
+    PostMailer.with(user: current_user, post: @post).post_share.deliver_later
     redirect_to sharings_path
   end
 
